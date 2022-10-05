@@ -15,7 +15,12 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        //Get method
+        return Product::all();
+
+        //$products = Product::all();
+        //$products = Product::where(['id' => 2])->get();
+        //return $products;
     }
 
     /**
@@ -36,7 +41,9 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        //
+        //Post method
+        Product::create($request->all());
+        return response()->json(["message" => "Sucesso!"]);
     }
 
     /**
