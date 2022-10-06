@@ -43,7 +43,7 @@ class ProductController extends Controller
     {
         //Post method
         Product::create($request->all());
-        return response()->json(["message" => "Sucesso!"]);
+        return response()->json(["message" => "Sucesso!"], 201);
     }
 
     /**
@@ -77,7 +77,8 @@ class ProductController extends Controller
      */
     public function update(UpdateProductRequest $request, Product $product)
     {
-        //
+        $product->update($request->all());
+        return response()->json(['message'=> "SUCESSO!"], 200);
     }
 
     /**
